@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — WispNote</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #0f0e17;
+      --ink-soft: #3a3850;
+      --ink-muted: #7c7a93;
+      --accent: #2B5CE6;
+      --accent-glow: rgba(43, 92, 230, 0.12);
+      --surface: #fafaf8;
+      --card: #ffffff;
+      --rule: #e8e6f0;
+      --ghost: rgba(43, 92, 230, 0.06);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--surface);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    /* ── Noise texture overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Header ── */
+    header {
+      position: relative;
+      padding: 80px 40px 60px;
+      max-width: 760px;
+      margin: 0 auto;
+      z-index: 1;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+
+    .logo-mark {
+      width: 44px;
+      height: 44px;
+      background: var(--accent);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 20px rgba(43, 92, 230, 0.3);
+    }
+
+    .logo-mark svg { width: 24px; height: 24px; }
+
+    .brand-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+
+    .brand-sub {
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 1px;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.8rem, 6vw, 4.2rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .meta {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    .meta span::before {
+      content: '·';
+      margin-right: 8px;
+      opacity: 0.4;
+    }
+
+    .meta span:first-child::before { display: none; }
+
+    /* ── The core promise card ── */
+    .promise {
+      max-width: 760px;
+      margin: 0 auto 16px;
+      padding: 0 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .promise-card {
+      background: var(--accent);
+      color: white;
+      border-radius: 16px;
+      padding: 32px 36px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      box-shadow: 0 8px 40px rgba(43, 92, 230, 0.25);
+    }
+
+    .promise-icon {
+      font-size: 2rem;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .promise-card h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .promise-card p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    /* ── Main content ── */
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 40px 40px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    section {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .section-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.95rem;
+      color: var(--accent);
+      font-style: italic;
+      flex-shrink: 0;
+      opacity: 0.7;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    p {
+      font-size: 0.97rem;
+      color: var(--ink-soft);
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    /* ── Highlight boxes ── */
+    .highlight {
+      background: var(--ghost);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+    }
+
+    /* ── Fact grid ── */
+    .fact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 520px) { .fact-grid { grid-template-columns: 1fr; } }
+
+    .fact {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      padding: 16px 18px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .fact-icon {
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .fact-text {
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    .fact-text strong {
+      display: block;
+      color: var(--ink);
+      font-weight: 500;
+      margin-bottom: 2px;
+      font-size: 0.85rem;
+    }
+
+    /* ── Contact block ── */
+    .contact-block {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-top: 20px;
+    }
+
+    .contact-block p { margin-bottom: 8px; }
+
+    .contact-block a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid var(--accent-glow);
+      transition: border-color 0.2s;
+    }
+
+    .contact-block a:hover { border-color: var(--accent); }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 32px 40px;
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    footer p {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      margin: 0;
+    }
+
+    /* ── Fade-in ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    header, .promise, main > section {
+      animation: fadeUp 0.55s ease both;
+    }
+
+    .promise { animation-delay: 0.1s; }
+    main > section:nth-child(1) { animation-delay: 0.15s; }
+    main > section:nth-child(2) { animation-delay: 0.2s; }
+    main > section:nth-child(3) { animation-delay: 0.25s; }
+    main > section:nth-child(4) { animation-delay: 0.3s; }
+    main > section:nth-child(5) { animation-delay: 0.35s; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="3" width="13" height="16" rx="2" fill="white" opacity="0.9"/>
+          <rect x="7" y="7" width="7" height="1.5" rx="0.75" fill="#2B5CE6"/>
+          <rect x="7" y="10" width="5" height="1.5" rx="0.75" fill="#2B5CE6" opacity="0.5"/>
+          <rect x="7" y="13" width="6" height="1.5" rx="0.75" fill="#2B5CE6" opacity="0.3"/>
+          <circle cx="17" cy="17" r="4" fill="white" opacity="0.3"/>
+          <circle cx="17" cy="17" r="2.5" fill="white" opacity="0.5"/>
+        </svg>
+      </div>
+      <div>
+        <div class="brand-name">WispNote</div>
+        <div class="brand-sub">by Digital Dilemma</div>
+      </div>
+    </div>
+
+    <h1>Privacy<br/><em>Policy</em></h1>
+
+    <div class="meta">
+      <span>Effective date: 1 January 2026</span>
+      <span>Last updated: March 2026</span>
+      <span>Version 1.0</span>
+    </div>
+  </header>
+
+  <div class="promise">
+    <div class="promise-card">
+      <div class="promise-icon">👻</div>
+      <div>
+        <h2>The short version</h2>
+        <p>WispNote does not collect, store, or transmit any personal data. The app runs entirely on your device. No accounts, no analytics, no internet connection required — ever.</p>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <section>
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2>Who we are</h2>
+      </div>
+      <p>WispNote is a Windows desktop application developed and published by <strong>Digital Dilemma</strong>. This privacy policy applies to the WispNote application distributed via the Microsoft Store.</p>
+      <p>If you have any questions about this policy, please use the contact details at the bottom of this page.</p>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2>Data we collect</h2>
+      </div>
+      <p>We collect <strong>no personal data whatsoever</strong>. WispNote is a fully offline application.</p>
+      <div class="fact-grid">
+        <div class="fact">
+          <span class="fact-icon">🚫</span>
+          <div class="fact-text"><strong>No accounts</strong>You are never asked to sign in or create a profile.</div>
+        </div>
+        <div class="fact">
+          <span class="fact-icon">🚫</span>
+          <div class="fact-text"><strong>No analytics</strong>We do not track usage, sessions, or behaviour.</div>
+        </div>
+        <div class="fact">
+          <span class="fact-icon">🚫</span>
+          <div class="fact-text"><strong>No internet</strong>WispNote requires no network connection to function.</div>
+        </div>
+        <div class="fact">
+          <span class="fact-icon">🚫</span>
+          <div class="fact-text"><strong>No telemetry</strong>No crash reports or diagnostics are sent anywhere.</div>
+        </div>
+        <div class="fact">
+          <span class="fact-icon">🚫</span>
+          <div class="fact-text"><strong>No third-party SDKs</strong>No advertising or tracking libraries are embedded.</div>
+        </div>
+        <div class="fact">
+          <span class="fact-icon">🚫</span>
+          <div class="fact-text"><strong>No cloud sync</strong>Your note content never leaves your machine.</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2>Data stored on your device</h2>
+      </div>
+      <p>WispNote stores the following data <strong>locally on your computer only</strong>. This data never leaves your device.</p>
+      <div class="highlight">
+        Your note content, window positions, theme preferences, and app settings are saved in a local application data folder on your PC. This data is accessible only to you and is not shared with Digital Dilemma or any third party.
+      </div>
+      <p>You can delete all locally stored data at any time by uninstalling WispNote. Uninstallation removes all app data from your system.</p>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2>Microsoft Store</h2>
+      </div>
+      <p>WispNote is distributed via the Microsoft Store. Microsoft may collect certain data as part of the Store platform — such as download counts, crash reports, and purchase records — in accordance with <a href="https://privacy.microsoft.com" target="_blank" rel="noopener" style="color: var(--accent); font-weight: 500;">Microsoft's own Privacy Policy</a>.</p>
+      <p>Digital Dilemma does not receive any personally identifiable information from Microsoft as part of this distribution arrangement.</p>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <h2>Children's privacy</h2>
+      </div>
+      <p>WispNote does not collect data from anyone, including children under the age of 13. As no data is collected at all, the app is inherently compliant with COPPA and similar regulations.</p>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <span class="section-num">06</span>
+        <h2>Changes to this policy</h2>
+      </div>
+      <p>If this privacy policy changes in a future version of WispNote, the updated policy will be published at this URL with a revised effective date. We will not make changes that reduce your privacy protections without clear notice.</p>
+      <p>Given that WispNote collects no data, meaningful changes to this policy are unlikely.</p>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <span class="section-num">07</span>
+        <h2>Contact</h2>
+      </div>
+      <p>Questions, concerns, or requests related to this privacy policy can be directed to:</p>
+      <div class="contact-block">
+        <p><strong>Digital Dilemma</strong></p>
+        <p>Mogamat Saleeg Sharief</p>
+        <p style="margin-top: 12px;">Email: <a href="mailto:hello@digitaldilemma.app">hello@digitaldilemma.app</a></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Digital Dilemma. All rights reserved.</p>
+    <p>WispNote · Privacy Policy · v1.0</p>
+  </footer>
+
+</body>
+</html>
