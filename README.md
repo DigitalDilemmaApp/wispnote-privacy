@@ -1,1 +1,0 @@
-# wispnote-privacy
